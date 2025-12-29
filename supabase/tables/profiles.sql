@@ -1,0 +1,21 @@
+CREATE TABLE profiles (
+    id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+    email TEXT UNIQUE NOT NULL,
+    full_name TEXT NOT NULL,
+    phone_number TEXT NOT NULL,
+    region TEXT,
+    id_number TEXT,
+    id_type TEXT CHECK (id_type IN ('namibianId', 'passport')),
+    is_verified BOOLEAN DEFAULT false,
+    profile_image_url TEXT,
+    role TEXT DEFAULT 'user' CHECK (role IN ('user',
+    'admin',
+    'super_admin')),
+    app_type TEXT,
+    created_by UUID REFERENCES profiles(id),
+    is_active BOOLEAN DEFAULT true,
+    last_login_at TIMESTAMPTZ,
+    metadata JSONB,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);

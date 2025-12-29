@@ -1,0 +1,23 @@
+CREATE TABLE emergency_alerts (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+    type TEXT NOT NULL CHECK (type IN ('panic',
+    'medical',
+    'fire',
+    'crime_in_progress')),
+    description TEXT,
+    latitude DOUBLE PRECISION,
+    longitude DOUBLE PRECISION,
+    location_description TEXT,
+    is_active BOOLEAN DEFAULT true,
+    triggered_at TIMESTAMPTZ NOT NULL,
+    resolved_at TIMESTAMPTZ,
+    status TEXT DEFAULT 'active' CHECK (status IN ('active',
+    'responding',
+    'resolved',
+    'false_alarm')),
+    notified_contacts TEXT[],
+    notified_services TEXT[],
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
