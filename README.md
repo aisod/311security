@@ -1,8 +1,8 @@
-# 3:11 Security - User App
+# 311security - Crime Prevention App
 
 ## 🚨 Emergency Response & Crime Reporting for Citizens
 
-The User App is the citizen-facing application of the 3:11 Security platform, designed for emergency response and community safety in Namibia.
+The 311 Security platform is designed for emergency response and community safety in Namibia. This repository contains the complete multi-app system including User App, Admin App, and Super Admin App.
 
 ### 📱 Features
 
@@ -12,6 +12,7 @@ The User App is the citizen-facing application of the 3:11 Security platform, de
 - **Emergency Contacts**: Quick access to emergency services
 - **Real-time Location**: GPS tracking for emergency response
 - **Multi-language Support**: English and local languages
+- **Admin Dashboard**: Comprehensive management interface for emergency alerts, danger zones, and user management
 
 ### 🛠️ Technical Stack
 
@@ -93,24 +94,16 @@ supabase deploy
 ### 📁 Project Structure
 
 ```
-security_311_user/
-├── lib/
-│   ├── main.dart              # App entry point
-│   ├── theme.dart            # App theming
-│   ├── constants/            # App constants
-│   ├── core/                 # Core utilities
-│   ├── models/               # Data models
-│   ├── providers/            # State management
-│   ├── screens/              # UI screens
-│   ├── services/             # API services
-│   ├── utils/                # Helper utilities
-│   └── widgets/              # Reusable widgets
-├── android/                  # Android configuration
-├── ios/                      # iOS configuration
-├── supabase/                 # Backend configuration
-├── docs/                     # Documentation
-├── .env                      # Environment variables
-└── pubspec.yaml             # Dependencies
+311_security_user_app/
+├── lib/                       # User App source code
+├── security_311_admin/        # Admin App source code
+├── security_311_super_admin/  # Super Admin App source code
+├── android/                   # Android configuration
+├── ios/                       # iOS configuration
+├── supabase/                  # Backend configuration
+├── docs/                      # Documentation
+├── .env                       # Environment variables
+└── pubspec.yaml              # Dependencies
 ```
 
 ### 🔐 Security Features
@@ -128,6 +121,7 @@ security_311_user/
 4. **Safety Alerts**: Community notifications
 5. **Profile**: User settings and emergency contacts
 6. **Map View**: Real-time location and incident mapping
+7. **Admin Dashboard**: Emergency alerts management with user details
 
 ### 🔧 Troubleshooting
 
@@ -158,5 +152,4 @@ This project is part of the 3:11 Security platform for community safety in Namib
 
 ---
 
-**Built with ❤️ for community safety in Namibia**  
-**MiniMax Agent** - November 2025
+**Built with ❤️ for community safety in Namibia**
